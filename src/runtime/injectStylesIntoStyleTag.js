@@ -291,7 +291,7 @@ module.exports = (list, options) => {
         stylesInDom.splice(index, 1);
 
          if(typeof options.onStyleRemoved === 'function') {
-            options.onStyleRemoved(style);
+            options.onStyleRemoved();
           }
       }
     }
