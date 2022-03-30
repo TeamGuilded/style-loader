@@ -159,9 +159,9 @@ if (content.locals) {
   exported.locals = content.locals;
 }
 
-exported.use = function() {
+exported.use = function(useOptions) {
   if (!(refs++)) {
-    dispose = api(content, options);
+    dispose = api(content, {...options,...useOptions});
   }
 
   return exported;
