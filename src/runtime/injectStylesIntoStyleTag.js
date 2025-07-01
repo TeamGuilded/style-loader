@@ -126,6 +126,10 @@ function insertStyleElement(options) {
     target.appendChild(style);
   }
 
+  if(typeof options.onStyleAdded === 'function') {
+    options.onStyleAdded(style);
+  }
+
   return style;
 }
 
@@ -285,6 +289,10 @@ module.exports = (list, options) => {
       if (stylesInDom[index].references === 0) {
         stylesInDom[index].updater();
         stylesInDom.splice(index, 1);
+
+        if(typeof options.onStyleRemoved === 'function') {
+          options.onStyleRemoved();
+        }
       }
     }
 
